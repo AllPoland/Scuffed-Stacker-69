@@ -2314,6 +2314,7 @@ MonoBehaviour:
   HardClearSound: {fileID: 8300000, guid: 4b87900692f146d488172ab04e719fca, type: 3}
   AllClearSound: {fileID: 8300000, guid: c09ce48662c2ef74aa4fbb63274acf79, type: 3}
   BigPointSound: {fileID: 8300000, guid: 30c1b0504a1ea99438dedace1c875666, type: 3}
+  ComboEndSound: {fileID: 8300000, guid: 47fbad220efeb534dbf69b95684769de, type: 3}
   ComboClipName: Combo
   comboClips: []
 --- !u!1 &734017589

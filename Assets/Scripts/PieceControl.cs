@@ -632,9 +632,10 @@ public class PieceControl : MonoBehaviour
         toCheck.y--;
         bool canFall = CheckPiece(toCheck, Rotation);
 
-        if(!didFall || !canFall) { //Activate grace if the piece can't fall
+        if(!didFall) { //Activate grace if the piece can't fall
             isGrace = true;
-        } else if(!canFall) {
+        }
+        if(!canFall && !isGrace) {
             TargetEmitter.PlayOneShot(LandAudio);
         }
         fallTime = 0;

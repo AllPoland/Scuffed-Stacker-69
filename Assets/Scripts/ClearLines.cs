@@ -13,6 +13,7 @@ public class ClearLines : MonoBehaviour
     [SerializeField] private AudioClip HardClearSound;
     [SerializeField] private AudioClip AllClearSound;
     [SerializeField] private AudioClip BigPointSound;
+    [SerializeField] private AudioClip ComboEndSound;
     [SerializeField] private string ComboClipName;
 
     public List<AudioClip> comboClips = new List<AudioClip>();
@@ -166,8 +167,8 @@ public class ClearLines : MonoBehaviour
             if(!isB2B) {
                 playerScript.B2B = 0;
                 B2BToSend = 0;
-                if(B2B > 2) {
-                    Debug.Log("B2B streak ended");
+                if(B2B > 3) {
+                    TargetEmitter.PlayOneShot(ComboEndSound);
                 }
             } else if(B2B > 1) {
                 gainedScore += 1;
@@ -182,7 +183,12 @@ public class ClearLines : MonoBehaviour
             }
 
             TargetEmitter.PlayOneShot(LineClearSound);
-        } else {playerScript.Combo = 0;}
+        } else {
+            if(Combo > 3) {
+                TargetEmitter.PlayOneShot(ComboEndSound);
+            }
+            playerScript.Combo = 0;
+        }
         
         PointsEarnedArgs newArgs = new PointsEarnedArgs
         {
